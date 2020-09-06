@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  covid_suspect: false
+  first_symptoms_date: 2020-03-27
+  contact_with_suspect: false
+  contact_with_confirmed: false
+  subjective: 
+  objective: 
+  assessment: MyString
+  plan: MyString
+  situation: MyString
+
+two:
+  covid_suspect: false
+  first_symptoms_date: 2020-03-27
+  contact_with_suspect: false
+  contact_with_confirmed: false
+  subjective: 
+  objective: 
+  assessment: MyString
+  plan: MyString
+  situation: MyString
