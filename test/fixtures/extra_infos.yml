@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: MyString
+  title: MyString
+  subtitle: MyString
+  start_date: 2020-09-06
+  end_date: 2020-09-06
+  summary: MyString
+
+two:
+  group: MyString
+  title: MyString
+  subtitle: MyString
+  start_date: 2020-09-06
+  end_date: 2020-09-06
+  summary: MyString

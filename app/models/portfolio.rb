@@ -1,0 +1,21 @@
+class Portfolio
+  include Mongoid::Document
+  field :title, type: String, localize: true
+  field :summary, type: String, localize: true
+  field :phone, type: String
+  field :email, type: String
+  field :github, type: String
+  field :gitlab, type: String
+  field :linkedin, type: String
+  field :instagram, type: String
+
+  belongs_to :location
+  has_many :experiences
+  has_many :educations
+  has_many :awards
+  has_many :skills
+  has_many :languages
+  has_many :projects
+
+  validates_presence_of :title, :email
+end

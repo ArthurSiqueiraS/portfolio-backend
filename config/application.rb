@@ -33,8 +33,9 @@ class Application < Rails::Application
     end
   end
 
-  config.i18n.default_locale = :'pt-BR'
-  config.i18n.fallbacks = {'pt-BR' => 'en'}
+  config.i18n.available_locales = [:en, :pt]
+  config.i18n.fallbacks = true
+  config.i18n.default_locale = :en
 
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration can go into files in config/initializers
@@ -52,10 +53,4 @@ class Application < Rails::Application
 
   config.mongoid.logger.level = Logger::ERROR
   config.autoload_paths << "#{Rails.root}/lib"
-  Dir["#{Rails.root}/app/concepts/*/"].each do |concept_folder|
-    config.autoload_paths << concept_folder
-    Dir["#{concept_folder}*/"].each do |concept_sub_folder|
-      config.autoload_paths << concept_sub_folder
-    end
-  end
 end

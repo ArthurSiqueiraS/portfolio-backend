@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course: MyString
+  institution: MyString
+  start_date: 2020-09-06
+  end_date: 2020-09-06
+  summary: MyString
+
+two:
+  course: MyString
+  institution: MyString
+  start_date: 2020-09-06
+  end_date: 2020-09-06
+  summary: MyString
