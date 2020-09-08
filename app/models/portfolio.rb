@@ -12,10 +12,10 @@ class Portfolio
   belongs_to :location
   has_many :experiences
   has_many :educations
-  has_many :awards
+  has_many :extra_infos
   has_many :skills
   has_many :languages
-  has_many :projects
+  # has_many :projects
 
   validates_presence_of :title, :email
 end
