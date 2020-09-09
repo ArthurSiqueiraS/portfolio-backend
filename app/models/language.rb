@@ -4,7 +4,7 @@ class Language
   field :level, type: Integer
 
   validates_presence_of :name, :level
-  validates :level, numericality: { greater_than: 2, less_than: 6 }
+  validates :level, numericality: { greater_than: 0, less_than: 4 }
 
   belongs_to :portfolio
 

@@ -4,7 +4,7 @@ class Skill
   field :level, type: Integer, default: 3
 
   validates :name, presence: true, uniqueness: true
-  validates :level, numericality: { greater_than: 1, less_than: 6 }
+  validates :level, numericality: { greater_than: 0, less_than: 6 }
 
   belongs_to :technology, optional: true
   belongs_to :portfolio
