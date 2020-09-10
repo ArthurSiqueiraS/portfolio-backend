@@ -5,7 +5,8 @@ class Technology
   field :logo, type: String
   field :link, type: String
 
-  has_one :skill
+  has_one :skill, dependent: :destroy
+  has_and_belongs_to_many :projects
 
   validates_presence_of :name, :type, :logo
   validates :type, inclusion: %w[front_end back_end]

@@ -3,6 +3,7 @@ class PortfolioController < ApplicationController
     I18n.locale = params[:locale] || 'en'
 
     portfolio = Portfolio.first
+    projects = portfolio.projects.map { |p| project(p) }
     experiences = portfolio.experiences.map { |e| experience(e) }
     education = parse_json(portfolio.educations)
     extra_info = parse_json(portfolio.extra_infos)
@@ -10,6 +11,7 @@ class PortfolioController < ApplicationController
     languages = parse_json(portfolio.languages)
 
     render json: parse_json(portfolio).merge({
+      projects: projects,
       address: parse_json(portfolio.location),
       experiences: experiences,
       education: education,
@@ -37,6 +39,12 @@ class PortfolioController < ApplicationController
     end
 
     json
+  end
+
+  def project(p)
+    highlights = parse_json(p.project_highlights)
+    status = parse_json(p.project_statuses)
+    parse_json(p).merge(highlights: highlights, status: status)
   end
 
   def experience(e)

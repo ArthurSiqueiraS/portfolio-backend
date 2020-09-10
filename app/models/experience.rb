@@ -7,8 +7,7 @@ class Experience
   belongs_to :employer
   has_and_belongs_to_many :occupations
 
-  validates_presence_of :start_date
-  validates :occupations, length: { minimum: 1 }
+  validates_presence_of :start_date, :occupations
 
   belongs_to :portfolio
 
