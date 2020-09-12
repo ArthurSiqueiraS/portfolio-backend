@@ -16,6 +16,7 @@ class Portfolio
   has_many :skills
   has_many :languages
   has_many :projects
+  has_many :technologies
 
   validates_presence_of :title, :email
 end

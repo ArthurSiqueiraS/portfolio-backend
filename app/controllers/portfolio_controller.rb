@@ -9,6 +9,7 @@ class PortfolioController < ApplicationController
     extra_info = parse_json(portfolio.extra_infos)
     skills = parse_json(portfolio.skills)
     languages = parse_json(portfolio.languages)
+    technologies = parse_json(portfolio.technologies)
 
     render json: parse_json(portfolio).merge({
       projects: projects,
@@ -17,7 +18,8 @@ class PortfolioController < ApplicationController
       education: education,
       extra_info: extra_info,
       skills: skills,
-      languages: languages
+      languages: languages,
+      technologies: technologies,
     })
   end
 
@@ -43,8 +45,21 @@ class PortfolioController < ApplicationController
 
   def project(p)
     highlights = parse_json(p.project_highlights)
+    technologies = parse_json(p.technologies)
+    front_end = technologies.select { |t| t['type'] == 'front_end' }
+    back_end = technologies.select { |t| t['type'] == 'back_end' }
+    employer = parse_json(p.employer)
+    occupations = parse_json(p.occupations)
     status = parse_json(p.project_statuses)
-    parse_json(p).merge(highlights: highlights, status: status)
+
+    parse_json(p).merge({
+      highlights: highlights,
+      frontEnd: front_end,
+      backEnd: back_end,
+      employer: employer,
+      occupations: occupations,
+      status: status,
+    })
   end
 
   def experience(e)

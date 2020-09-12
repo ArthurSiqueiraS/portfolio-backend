@@ -6,6 +6,7 @@ class Project
   field :start_date, type: Date
   field :end_date, type: Date
   field :logo, type: String
+  field :url, type: String
 
   has_many :project_highlights, dependent: :destroy
   has_and_belongs_to_many :technologies
