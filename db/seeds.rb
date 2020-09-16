@@ -30,7 +30,6 @@ pelotas = create(Location,
 # Portfolio
 portfolio = create(Portfolio,
 {
-  birth_date: Date.new(1998, 4, 13),
   title: 'Full-stack Developer',
   about: "Recently graduated in Computer Science, I have over 2 years of experience in front-end and back-end
   web development.#n My most used technologies are Vue.js, Nuxt.js, Ruby on Rails and MongoDB, but the
