@@ -2,7 +2,7 @@ class Portfolio
   include Mongoid::Document
   field :birth_date, type: Date
   field :title, type: String, localize: true
-  field :summary, type: String, localize: true
+  field :about, type: String, localize: true
   field :phone, type: String
   field :email, type: String
   field :github, type: String

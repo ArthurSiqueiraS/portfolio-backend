@@ -32,16 +32,11 @@ portfolio = create(Portfolio,
 {
   birth_date: Date.new(1998, 4, 13),
   title: 'Full-stack Developer',
-  summary: "Recently graduated with a Bachelor's degree in Computer Science, I have over 2 years of
-  experience in front-end and back-end web development, working on multiple projects in 2 companies
-  and some personal and freelance projects.#n
-  My most used technologies are Vue.js, Nuxt.js, Ruby on
-  Rails and MongoDB, but the foundations of my skills are on my programming logic and fast knowledge
-  absorption. Worked primarily as part of the dev team in most of the projects, but also acted as
-  tech lead and data engineer.#n
-  I excel at adapting and exchanging knowledge with my teammates, and
-  am also very task-driven and autonomous, with good time management skills. Since the COVID-19
-  pandemic I have worked exclusively from home",
+  about: "Recently graduated in Computer Science, I have over 2 years of experience in front-end and back-end
+  web development.#n My most used technologies are Vue.js, Nuxt.js, Ruby on Rails and MongoDB, but the
+  foundations of my skills are on my programming logic and fast knowledge absorption.#n
+  I excel at adapting and exchanging knowledge with my teammates, and am also very task-driven and autonomous,
+  with good time management skills. Since the COVID-19 pandemic I have worked exclusively from home",
   phone: '5553991362391',
   email: 'dev.arthursiqueira@gmail.com',
   linkedin: 'arthur-siqueira-e-silva-8283bb18a',
@@ -52,16 +47,12 @@ portfolio = create(Portfolio,
 },
 {
   title: 'Desenvolvedor Full-stack',
-  summary: 'Recentemente formado com um diploma de Bacharelado em Ciência da Computação, tenho
-  mais de 2 anos de experiência em desenvolvimento web front-end e back-end, trabalhando em
-  múltiplos projetos em 2 empresas e alguns projetos pessoais e freelance.#n
-  Minhas tecnologias mais utilizadas são Vue.js, Nuxt.js, Ruby on Rails e MongoDB, mas as fundações
-  das minhas habilidades estão em minha lógica de programação e rápida absorção de conhecimento. Trabalhei primariamente
-  como parte do time de desenvolvimento na maioria dos projetos, mas também agi como líder técnico e
-  engenheiro de dados.#n
-  Me sobressaio em adaptar-me e trocar conhecimentos com meus colegas, e sou
-  bastante autônomo e motivado por tarefas, com boas capacidades de gerenciamento de tempo. Desde a
-  pandemia da COVID-19 tenho trabalhado exclusivamente de casa.'
+  about: 'Recentemente formado em Ciência da Computação, tenho mais de 2 anos de experiência em desenvolvimento
+  web front-end e back-end. Minhas tecnologias mais utilizadas são Vue.js, Nuxt.js, Ruby on Rails e MongoDB, mas
+  as fundações das minhas habilidades estão em minha lógica de programação e rápida absorção de conhecimento.#n
+  Me sobressaio em adaptar-me e trocar conhecimentos com meus colegas, e sou bastante autônomo e motivado por
+  tarefas, com boas capacidades de gerenciamento de tempo. Desde a pandemia da COVID-19 tenho trabalhado
+  exclusivamente de casa.'
 })
 
 # Languages
@@ -345,6 +336,9 @@ technologies = {
 technologies.each do |key, tech|
   create(Skill, technology: tech)
 end
+create(Skill, { name: 'Collaborative projects' }, { name: 'Projetos colaborativos' })
+create(Skill, { name: 'Autonomy' }, { name: 'Autonomia' })
+create(Skill, { name: 'Task management' }, { name: 'Gerenciamento de tarefas' })
 
 # Project statuses
 launched = create(ProjectStatus,
