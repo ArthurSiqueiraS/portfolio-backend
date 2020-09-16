@@ -1,5 +1,6 @@
 class Portfolio
   include Mongoid::Document
+  field :birth_date, type: Date
   field :title, type: String, localize: true
   field :summary, type: String, localize: true
   field :phone, type: String
@@ -18,5 +19,5 @@ class Portfolio
   has_many :projects
   has_many :technologies
 
-  validates_presence_of :title, :email
+  validates_presence_of :birth_date, :title, :email
 end

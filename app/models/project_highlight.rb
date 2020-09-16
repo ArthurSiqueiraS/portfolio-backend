@@ -3,7 +3,7 @@ class ProjectHighlight
   field :title, type: String, localize: true
   field :description, type: String, localize: true
   field :image, type: String
-  field :icon, type: String
+  field :icon, type: String, default: 'star'
 
   belongs_to :project
 

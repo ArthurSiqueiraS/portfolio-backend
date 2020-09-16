@@ -3,23 +3,21 @@ class PortfolioController < ApplicationController
     I18n.locale = params[:locale] || 'en'
 
     portfolio = Portfolio.first
-    projects = portfolio.projects.map { |p| project(p) }
-    experiences = portfolio.experiences.map { |e| experience(e) }
+    projects = portfolio.projects.desc(:start_date).map { |p| project(p) }
     education = parse_json(portfolio.educations)
     extra_info = parse_json(portfolio.extra_infos)
     skills = parse_json(portfolio.skills)
     languages = parse_json(portfolio.languages)
-    technologies = parse_json(portfolio.technologies)
 
     render json: parse_json(portfolio).merge({
       projects: projects,
       address: parse_json(portfolio.location),
-      experiences: experiences,
+      experiences: experiences(portfolio.experiences),
       education: education,
       extra_info: extra_info,
       skills: skills,
       languages: languages,
-      technologies: technologies,
+      technologies: technologies(portfolio.technologies),
     })
   end
 
@@ -62,9 +60,32 @@ class PortfolioController < ApplicationController
     })
   end
 
-  def experience(e)
-    occupations = parse_json(e.occupations)
-    employer = parse_json(e.employer)
-    parse_json(e).merge(occupations: occupations, employer: employer)
+  def experiences(list)
+    experiences = list.map do |e|
+      occupations = parse_json(e.occupations)
+      employer = parse_json(e.employer)
+      parse_json(e).merge(occupations: occupations, employer: employer)
+    end
+
+    experiences.sort do |e1, e2|
+      case
+      when !e1['end_date'] && !e2['end_date']
+        e1['start_date'] < e2['start_date'] ? 1 : -1
+      when e1['end_date'] && e2['end_date']
+        e1['end_date'] < e2['end_date'] ? 1 : -1
+      else
+        e1['end_date'] ? 1 : -1
+      end
+    end
+  end
+
+  def technologies(list)
+    if params[:frontPageTechnologies]
+      return params[:frontPageTechnologies].map do |tech_name|
+        parse_json(list.find_by(name: tech_name))
+      end
+    end
+
+    parse_json(list)
   end
 end
