@@ -1,9 +1,7 @@
 production:
   clients:
     default:
-      database: portfolio
-      hosts:
-        - localhost:27017
+      uri: mongodb+srv://arthursiqueiras:plastichearts2020@cluster0.6oz7j.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 development:
   options:
