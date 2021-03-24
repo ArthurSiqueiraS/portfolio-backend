@@ -6,7 +6,7 @@ class PortfolioController < ApplicationController
     projects = portfolio.projects.desc(:start_date).map { |p| project(p) }
     education = parse_json(portfolio.educations)
     extra_info = parse_json(portfolio.extra_infos)
-    skills = parse_json(portfolio.skills)
+    skills = parse_json(portfolio.skills.desc(:level))
     languages = parse_json(portfolio.languages)
 
     render json: parse_json(portfolio).merge({
