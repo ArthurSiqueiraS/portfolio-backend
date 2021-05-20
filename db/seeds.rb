@@ -30,12 +30,12 @@ pelotas = create(Location,
 # Portfolio
 portfolio = create(Portfolio,
 {
-  title: 'Full-stack Developer',
-  about: "Recently graduated in Computer Science, I have over 2 years of experience in front-end and back-end
-  web development.#n My most used technologies are Vue.js, Nuxt.js, Ruby on Rails and MongoDB, but the
-  foundations of my skills are on my programming logic and fast knowledge absorption.#n
-  I excel at adapting and exchanging knowledge with my teammates, and am also very task-driven and autonomous,
-  with good time management skills. Since the COVID-19 pandemic I have worked exclusively from home",
+  title: 'Software Developer',
+  about: "Graduated in Computer Science, I have over 2 years of experience in software development.
+  I've worked on web applications for most of my career, but am currently acting as a software developer
+  for desktop platforms. I bring with me my accumulated programming experience and logic, my will to
+  learn and to face challenges and my desire to keep balance of two important pillars in any team project:
+  chasing the best results effectively and maintaining a pleasant interpersonal environment.",
   phone: '5553991362391',
   email: 'dev.arthursiqueira@gmail.com',
   linkedin: 'arthur-siqueira-e-silva-8283bb18a',
@@ -45,13 +45,13 @@ portfolio = create(Portfolio,
   location: pelotas
 },
 {
-  title: 'Desenvolvedor Full-stack',
-  about: 'Recentemente formado em Ciência da Computação, tenho mais de 2 anos de experiência em desenvolvimento
-  web front-end e back-end. Minhas tecnologias mais utilizadas são Vue.js, Nuxt.js, Ruby on Rails e MongoDB, mas
-  as fundações das minhas habilidades estão em minha lógica de programação e rápida absorção de conhecimento.#n
-  Me sobressaio em adaptar-me e trocar conhecimentos com meus colegas, e sou bastante autônomo e motivado por
-  tarefas, com boas capacidades de gerenciamento de tempo. Desde a pandemia da COVID-19 tenho trabalhado
-  exclusivamente de casa.'
+  title: 'Desenvolvedor de Software',
+  about: 'Formado em Ciência da Computação, tenho mais de 2 anos de experiência em desenvolvimento de
+  software. Na maior parte da minha carreira, trabalhei em aplicações web, mas atualmente estou atuando
+  como um desenvolvedor de software para plataformas desktop. Eu levo comigo a experiência e lógica de
+  programação que acumulo, minha vontade de aprender e de enfrentar desafios e meu desejo de manter o
+  equilíbrio entre dois importantes pilares de qualquer projeto em equipe: a busca efetiva pelos melhores
+  resultados e a manutenção de um ambiente interpessoal agradável.'
 })
 
 # Languages
@@ -72,6 +72,7 @@ spanish = create(Language,
 hut8 = create(Employer, { name: 'Hut8', link: 'http://hut8.com.br/' })
 indeorum = create(Employer, { name: 'Indeorum', link: 'https://indeorum.com/' })
 freelance = create(Employer, { name: 'Freelance' })
+nelogica = create(Employer, { name: 'Nelogica', link: 'https://www.nelogica.com.br/' })
 
 # Occupations
 front_end_dev = create(Occupation,
@@ -101,6 +102,10 @@ project_manager = create(Occupation,
 { name: 'Project Manager' },
 { name: 'Gerente de Projeto' }
 )
+software_dev = create(Occupation,
+{ name: 'Software Developer' },
+{ name: 'Desenvolvedor de Software' }
+)
 
 # Experience
 create(Experience,
@@ -126,6 +131,7 @@ create(Experience,
   employer: indeorum,
   occupations: [full_stack_dev, tech_lead],
   start_date: Date.new(2020, 1),
+  end_date: Date.new(2021, 1),
   summary: 'Development of commercial web applications, working in scrum teams and using Vue.js,
   Ruby on Rails and MongoDB as the main development technologies. Also acting as a
   tech lead and responsible for the creation of solutions for complex internal problems
@@ -156,6 +162,21 @@ create(Experience,
   comissão organizadora do evento. Desenvolvi o front-end com Vue.js (utilizando o framework
   Nuxt.js) e o back-end com Ruby on Rails (API) e MongoDB, integrando a aplicação com serviços
   de nuvem como Heroku, Netlify, Amazon S3 e Youtube."
+})
+create(Experience,
+{
+  employer: nelogica,
+  occupations: [software_dev],
+  start_date: Date.new(2021, 2),
+  summary: 'Working on technological solutions for the financial market, mostly on Desktop apps for traders.
+  As part of a team of software developers, this role includes creating new features, enhancing
+  or fixing older ones, participating in project alignments and regularly reviewing codes from teammates.',
+},
+{
+  summary: 'Desenvolvimento de soluções para o mercado, em especial aplicações de Desktop para traders.
+  Como parte de uma equipe de desenvolvedores de software, este cargo inclui as responsabilidades de
+  criar novas funcionalidades, melhorar ou consertar outras mais antigas, participar de alinhamentos de
+  projeto e revisar códigos de colegas regularmente.'
 })
 
 # Education
@@ -328,16 +349,32 @@ technologies = {
     type: 'front_end',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg',
     link: 'https://www.adobe.com/br/products/photoshop.html'
+  }),
+  delphi: create(Technology,
+  {
+    name: 'Delphi',
+    type: 'back_end',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Delphi.svg',
+    link: 'https://www.embarcadero.com/br/products/delphi',
   })
 }
 
 # Skills
-technologies.each do |key, tech|
-  create(Skill, technology: tech)
+technologies.slice(:vue, :nuxt, :vuex, :ruby, :rails, :html, :js, :css, :mongo, :vuetify).each do |key, tech|
+  create(Skill, technology: tech, level: 5)
 end
-create(Skill, { name: 'Collaborative projects' }, { name: 'Projetos colaborativos' })
-create(Skill, { name: 'Autonomy' }, { name: 'Autonomia' })
-create(Skill, { name: 'Task management' }, { name: 'Gerenciamento de tarefas' })
+
+technologies.slice(:delphi, :reactjs, :git).each do |key, tech|
+  create(Skill, technology: tech, level: 4)
+end
+
+technologies.slice(:python, :sql, :linux, :bootstrap).each do |key, tech|
+  create(Skill, technology: tech, level: 3)
+end
+
+technologies.slice(:c, :java, :s3, :websockets, :photoshop).each do |key, tech|
+  create(Skill, technology: tech, level: 2)
+end
 
 # Project statuses
 launched = create(ProjectStatus,
@@ -436,8 +473,7 @@ cientum_3 = create(Project,
   description: "Cientum is Indeorum's platform for academic institutions to visualize their
   productions through valuable graphs and customizable metrics. Cientum 3.0 is a new version
   from scratch, maintaining the product's features but builded with separate front-end and
-  back-end to optimize maintainability and modernize it's interface. I don't work directly on
-  the project anymore, but it should be releasing soon.",
+  back-end to optimize maintainability and modernize it's interface.",
   start_date: Date.new(2019, 9),
   end_date: Date.new(2020, 3),
   images: Array(1..5).map { |i| project_image('cientum-3.0', "#{i}.jpg") },
@@ -451,8 +487,7 @@ cientum_3 = create(Project,
   description: 'Cientum é a plataforma da Indeorum onde instituições acadêmicas podem visualizar
   suas produções através de gráficos valiosos e métricas customizáveis. Cientum 3.0 é uma nova
   versão feita do zero, mantendo as funcionalidades do produto mas construída com um front-end
-  e back-end separados para otimizar a manutenibilidade e modernizar sua interface. Atualmente não
-  trabalho diretamente no projeto, mas em breve deverá ser lançado.'
+  e back-end separados para otimizar a manutenibilidade e modernizar sua interface.'
 })
 
 create(ProjectHighlight,
@@ -500,10 +535,10 @@ vidium = create(Project,
   first semester of 2020. Vidium was made to help healthcare providers in keeping an organized
   record of the numerous screenings being made and calls being received, as well as having a video
   call feature that connects patients with doctors via telemedicine. The application was launched in
-  less than a week, since then being used for hundreds of screenings and receiving continuous
-  updates. Currently I am working on this project.',
+  less than a week, since then being used for hundreds of screenings.',
   technologies: technologies.slice(:vuejs, :nuxtjs, :vuetify, :vuex, :websockets).values,
   start_date: Date.new(2020, 3),
+  end_date: Date.new(2020, 11),
   images: Array(1..8).map { |i| project_image('vidium', "#{i}.jpg") },
   logo: project_image('vidium', 'logo.png'),
   thumbnail: project_image('vidium', '2.jpg'),
@@ -514,8 +549,7 @@ vidium = create(Project,
   de 2020. O Vidium foi criado para ajudar provedores de saúde a manter um registro organizado dos
   inúmeros atendimentos e triagens realizadas no momento, também fornecendo um serviço de chamada
   por vídeo que conecta pacientes e médicos via telemedicina. A aplicação foi lançada em menos de
-  uma semana, desde então sendo utilizada para centenas de triagens e recebendo atualizações.
-  Atualmente estou trabalhando neste projeto.'
+  uma semana, desde então sendo utilizada para centenas de triagens.'
 })
 create(ProjectHighlight,
 {
@@ -595,4 +629,54 @@ create(ProjectHighlight,
   description: 'Para criar uma melhor experiência para o evento, uma sala de livestream executava
   um vídeo do Youtube embutido, com uma camada customizada sobre o player de vídeo, combinando com
   o tema visual do site.',
+})
+
+# Doctour
+doctour = create(Project,
+{
+  employer: indeorum,
+  occupations: [front_end_dev],
+  title: 'Doctour',
+  description: "My last project at Indeorum was a Telemedicine platform for tourists, in collaboration
+  with mexican company Doctour. This project had a big focus on the interace styling to fit the existing
+  visual branding of the company. My challenge as a front-end lead was to build a base of highly
+  customized components that would be used to give life to the high-fidelity page designs.",
+  technologies: technologies.slice(
+    :vuejs,
+    :nuxtjs,
+    :vuetify,
+    :vuex
+  )
+  .values,
+  start_date: Date.new(2020, 11),
+  end_date: Date.new(2021, 1),
+  images: Array(1..6).map { |i| project_image('doctour', "#{i}.jpg") },
+  logo: project_image('doctour', 'logo.png'),
+  thumbnail: project_image('doctour', '1.jpg')
+},
+{
+  title: 'Doctour',
+  description: 'Meu último projeto na Indeorum foi uma plataforma de Telemedicina para turistas, em
+  colaboração com a empresa mexicana Doctour. Este projeto tinha um grande foco na estilização da interface,
+  para que casasse com o branding visual já existente da empresa. Meu desafio como lead de front-end foi
+  construir uma base de components altamente customizados que seriam utilizados para dar vida ao design robusto
+  da aplicação.'
+})
+create(ProjectHighlight,
+{
+  project: doctour,
+  title: 'Customized components',
+  description: 'With the use of UI Framework Vuetify, a catalog of components was created to streamline the
+  development and maintain a standard style through different pages effortlessly. To keep visuals and
+  functionality faithful to what the UX team designed, some standard components from the library were severely
+  customized and expanded to be both matching the desired style and highly reusable.',
+  image: project_image('doctour', 'h1.jpg'),
+  icon: 'view_quilt'
+},
+{
+  title: 'Componentes customizados',
+  description: 'Com o uso do Framework de UI Vuetify, foi criado um catálogo de componentes para tornar o
+  desenvolvimento mais fácil e manter um estilo padrão em todas as páginas sem muito esforço. Para manter visuais
+  e funcionalidade fieis ao que a equipe de UX elaborou, alguns componentes padrões da biblioteca foram intensamente
+  alterados e expandidos, tanto para atingir o estilo desejado quanto para torná-los altamente reutilizáveis.'
 })
