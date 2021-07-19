@@ -173,7 +173,7 @@ create(Experience,
   or fixing older ones, participating in project alignments and regularly reviewing codes from teammates.',
 },
 {
-  summary: 'Desenvolvimento de soluções para o mercado, em especial aplicações de Desktop para traders.
+  summary: 'Desenvolvimento de soluções para o mercado financeiro, em especial aplicações de Desktop para traders.
   Como parte de uma equipe de desenvolvedores de software, este cargo inclui as responsabilidades de
   criar novas funcionalidades, melhorar ou consertar outras mais antigas, participar de alinhamentos de
   projeto e revisar códigos de colegas regularmente.'
