@@ -360,7 +360,7 @@ technologies = {
 }
 
 # Skills
-technologies.slice(:vue, :nuxt, :vuex, :ruby, :rails, :html, :js, :css, :mongo, :vuetify).each do |key, tech|
+technologies.slice(:vuejs, :nuxtjs, :vuex, :ruby, :rails, :html, :js, :css, :mongo, :vuetify).each do |key, tech|
   create(Skill, technology: tech, level: 5)
 end
 
