@@ -30,12 +30,12 @@ pelotas = create(Location,
 # Portfolio
 portfolio = create(Portfolio,
 {
-  title: 'Software Developer',
-  about: "Graduated in Computer Science, I have over 2 years of experience in software development.
-  I've worked on web applications for most of my career, but am currently acting as a software developer
-  for desktop platforms. I bring with me my accumulated programming experience and logic, my will to
-  learn and to face challenges and my desire to keep balance of two important pillars in any team project:
-  chasing the best results effectively and maintaining a pleasant interpersonal environment.",
+  title: 'Software Engineer',
+  about: "Graduated in Computer Science, with over 3 years of professional software development experience.
+  In my career I have worked on web and desktop applications, both in front-end and back-end, and currently 
+  I act as a full-stack web developer. I have found success in the teams I've collaborated with by being 
+  proactive, asking and answering questions between my peers, a trait which has led me to become a mentor for 
+  new developers at a web development bootcamp.",
   phone: '5553991362391',
   email: 'dev.arthursiqueira@gmail.com',
   linkedin: 'arthur-siqueira-e-silva',
@@ -45,13 +45,12 @@ portfolio = create(Portfolio,
   location: pelotas
 },
 {
-  title: 'Desenvolvedor de Software',
-  about: 'Formado em Ciência da Computação, tenho mais de 2 anos de experiência em desenvolvimento de
-  software. Na maior parte da minha carreira, trabalhei em aplicações web, mas atualmente estou atuando
-  como um desenvolvedor de software para plataformas desktop. Eu levo comigo a experiência e lógica de
-  programação que acumulo, minha vontade de aprender e de enfrentar desafios e meu desejo de manter o
-  equilíbrio entre dois importantes pilares de qualquer projeto em equipe: a busca efetiva pelos melhores
-  resultados e a manutenção de um ambiente interpessoal agradável.'
+  title: 'Engenheiro de Software',
+  about: 'Formado em Ciência da Computação, com mais de 3 anos de experiência profissional em desenvolvimento
+  de software. Em minha carreira já trabalhei em aplicações para web e desktop, no front-end e no back-end, e 
+  atualmento trabalho como um desenvolvedor full-stack web. Nos times com quem já colaborei, encontrei sucesso
+  sendo proativo, perguntando e respondendo questões entre meus companheiros, um traço que me levou a me tornar
+  um mentor para novos desenvolvedores em um bootcamp de desenvolvimento web.'
 })
 
 # Languages
@@ -73,6 +72,8 @@ hut8 = create(Employer, { name: 'Hut8', link: 'http://hut8.com.br/' })
 indeorum = create(Employer, { name: 'Indeorum', link: 'https://indeorum.com/' })
 freelance = create(Employer, { name: 'Freelance' })
 nelogica = create(Employer, { name: 'Nelogica', link: 'https://www.nelogica.com.br/' })
+globant = create(Employer, { name: 'Globant', link: 'https://www.globant.com/pt-br' })
+lhl = create(Employer, { name: 'Lighthouse Labs', link: 'https://www.lighthouselabs.ca/' })
 
 # Occupations
 front_end_dev = create(Occupation,
@@ -105,6 +106,14 @@ project_manager = create(Occupation,
 software_dev = create(Occupation,
 { name: 'Software Developer' },
 { name: 'Desenvolvedor de Software' }
+)
+software_eng = create(Occupation,
+{ name: 'Software Engineer' },
+{ name: 'Engenheiro de Software' }
+)
+web_mentor = create(Occupation,
+{ name: 'Web Development Mentor' },
+{ name: 'Mentor de Desenvolvimento Web' }
 )
 
 # Experience
@@ -160,15 +169,16 @@ create(Experience,
   summary: "Trabalhei autonomamente no desenvolvimento de uma plataforma web para promover e
   transmitir a XXXVI Semana Acadêmica de Medicina UFPel, em colaboração com os estudantes da
   comissão organizadora do evento. Desenvolvi o front-end com Vue.js (utilizando o framework
-  Nuxt.js) e o back-end com Ruby on Rails (API) e MongoDB, integrando a aplicação com serviços
-  de nuvem como Heroku, Netlify, Amazon S3 e Youtube."
-})
-create(Experience,
-{
-  employer: nelogica,
-  occupations: [software_dev],
-  start_date: Date.new(2021, 2),
-  summary: 'Working on technological solutions for the financial market, mostly on Desktop apps for traders.
+    Nuxt.js) e o back-end com Ruby on Rails (API) e MongoDB, integrando a aplicação com serviços
+    de nuvem como Heroku, Netlify, Amazon S3 e Youtube."
+  })
+  create(Experience,
+  {
+    employer: nelogica,
+    occupations: [software_dev],
+    start_date: Date.new(2021, 2),
+    end_date: Date.new(2021, 9),
+    summary: 'Working on technological solutions for the financial market, mostly on Desktop apps for traders.
   As part of a team of software developers, this role includes creating new features, enhancing
   or fixing older ones, participating in project alignments and regularly reviewing codes from teammates.',
 },
@@ -177,6 +187,39 @@ create(Experience,
   Como parte de uma equipe de desenvolvedores de software, este cargo inclui as responsabilidades de
   criar novas funcionalidades, melhorar ou consertar outras mais antigas, participar de alinhamentos de
   projeto e revisar códigos de colegas regularmente.'
+})
+create(Experience,
+{
+  employer: globant,
+  occupations: [software_eng],
+  start_date: Date.new(2021, 9),
+  summary: "Working in scrum pods assigned to external Globant consulting clients, as a full-stack engineer with
+  focus on the back-end. Besides development, role involves actively participating in scrum processes, analyzing
+  business requirements and elaborating technical solutions for the proposed projects and maintaining close 
+  communication with the client company's team. Technology stack includes Ruby on Rails, React and PostgreSQL.",
+},
+{
+  summary: 'Colaborando em pods scrum designados para clientes externos de consultoria da Globant, atuando como
+  engenheiro full-stack com foco no back-end. Além de desenvolvimento, o cargo envolve participar ativamente dos
+  processos de scrum, analisar requisitos de negócio e elaborar soluções técnicas para os projetos propostos e
+  manter uma comunicação próxima com a equipe da empresa cliente. O stack tecnológico inclue Ruby on Rails, React
+  e PostgreSQL.'
+})
+create(Experience,
+{
+  employer: lhl,
+  occupations: [web_mentor],
+  start_date: Date.new(2021, 8),
+  summary: 'As a mentor at Lighthouse Labs, I assisted students from all over the world as they went through the
+  extensive web bootcamp curriculum. The course included various practical assignments and predefined or student
+  designed projects, covering fundamental programming concepts and web development technologies such as HTML, CSS,
+  JavaScript, SQL, React, Ruby on Rails and others.',
+},
+{
+  summary: 'Como um mentor na Lighthouse Labs, eu auxiliei estudantes de diversos países diferentes durante suas
+  jornadas pelo extenso currículo do bootcamp web. O curso incluía diversas tarefas práticas e projetos predefinidos
+  ou elaborados pelos próprios estudantes, cobrindo conceitos fundamentais de programação e tecnologias de
+  desenvolvimento web como HTML, CSS, JavaScript, SQL, React, Ruby on Rails entre outras.'
 })
 
 # Education
@@ -294,26 +337,35 @@ technologies = {
   {
     name: 'Git',
     type: 'back_end',
+    logo: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png',
+    link: 'https://git-scm.com/'
   }),
   c: create(Technology,
   {
     name: 'C',
     type: 'back_end',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/695px-C_Programming_Language.svg.png'
   }),
   java: create(Technology,
   {
     name: 'Java',
     type: 'back_end',
+    logo: 'https://logospng.org/download/java/logo-java-512.png',
+    link: 'https://www.java.com/pt-BR/'
   }),
   sql: create(Technology,
   {
-    name: 'SQL',
+    name: 'PostgreSQL',
     type: 'back_end',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png',
+    link: 'https://www.postgresql.org/'
   }),
   linux: create(Technology,
   {
     name: 'Linux',
     type: 'back_end',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png',
+    link: 'https://www.linux.org/'
   }),
   vuetify: create(Technology,
   {
@@ -360,11 +412,11 @@ technologies = {
 }
 
 # Skills
-technologies.slice(:vuejs, :nuxtjs, :vuex, :ruby, :rails, :html, :js, :css, :mongo, :vuetify).each do |key, tech|
+technologies.slice(:vuejs, :reactjs, :ruby, :rails, :git, :html, :js, :css).each do |key, tech|
   create(Skill, technology: tech, level: 5)
 end
 
-technologies.slice(:delphi, :reactjs, :git).each do |key, tech|
+technologies.slice(:nuxtjs, :vuex, :vuetify, :delphi, :mongo).each do |key, tech|
   create(Skill, technology: tech, level: 4)
 end
 
