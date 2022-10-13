@@ -31,11 +31,11 @@ pelotas = create(Location,
 portfolio = create(Portfolio,
 {
   title: 'Software Engineer',
-  about: "Graduated in Computer Science, with over 3 years of professional software development experience.
-  In my career I have worked on web and desktop applications, both in front-end and back-end, and currently 
-  I act as a full-stack web developer. I have found success in the teams I've collaborated with by being 
-  proactive, asking and answering questions between my peers, a trait which has led me to become a mentor for 
-  new developers at a web development bootcamp.",
+  about: "Graduated in Computer Science, with over 4 years of professional software development experience.
+  In my career I have worked on web and desktop applications, both in front-end and back-end, and currently
+  I act as a full-stack web developer. In the teams I've collaborated with, I have found success by being proactive
+  and balancing effectiveness in the deliveries with good communication skills to build environments of technical
+  and interpersonal trust.",
   phone: '5553991362391',
   email: 'dev.arthursiqueira@gmail.com',
   linkedin: 'arthur-siqueira-e-silva',
@@ -46,11 +46,11 @@ portfolio = create(Portfolio,
 },
 {
   title: 'Engenheiro de Software',
-  about: 'Formado em Ciência da Computação, com mais de 3 anos de experiência profissional em desenvolvimento
-  de software. Em minha carreira já trabalhei em aplicações para web e desktop, no front-end e no back-end, e 
-  atualmento trabalho como um desenvolvedor full-stack web. Nos times com quem já colaborei, encontrei sucesso
-  sendo proativo, perguntando e respondendo questões entre meus companheiros, um traço que me levou a me tornar
-  um mentor para novos desenvolvedores em um bootcamp de desenvolvimento web.'
+  about: 'Formado em Ciência da Computação, com mais de 4 anos de experiência profissional em desenvolvimento
+  de software. Em minha carreira já trabalhei em aplicações para web e desktop, no front-end e no back-end, e
+  atualmento trabalho como um desenvolvedor full-stack web. Nas equipes com as quais já colaborei, encontrei sucesso
+  sendo proativo e equilibrando eficiência nas entregas com boas habilidades de comunicação para construir ambientes
+  de cofiança técnica e interpessoal.'
 })
 
 # Languages
@@ -272,6 +272,13 @@ technologies = {
   }),
   reactjs: create(Technology,
   {
+    name: 'React Native',
+    type: 'front_end',
+    logo: 'https://cdn.worldvectorlogo.com/logos/react-native-1.svg',
+    link: 'https://reactnative.dev/'
+  }),
+  reactnative: create(Technology,
+  {
     name: 'React.js',
     type: 'front_end',
     logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
@@ -353,7 +360,7 @@ technologies = {
     logo: 'https://logospng.org/download/java/logo-java-512.png',
     link: 'https://www.java.com/pt-BR/'
   }),
-  sql: create(Technology,
+  postgresql: create(Technology,
   {
     name: 'PostgreSQL',
     type: 'back_end',
@@ -412,15 +419,15 @@ technologies = {
 }
 
 # Skills
-technologies.slice(:vuejs, :reactjs, :ruby, :rails, :git, :html, :js, :css).each do |key, tech|
+technologies.slice(:reactjs, :vuejs, :ruby, :rails, :git, :html, :js, :css).each do |key, tech|
   create(Skill, technology: tech, level: 5)
 end
 
-technologies.slice(:nuxtjs, :vuex, :vuetify, :delphi, :mongo).each do |key, tech|
+technologies.slice(:reactnative, :nuxtjs, :vuex, :vuetify).each do |key, tech|
   create(Skill, technology: tech, level: 4)
 end
 
-technologies.slice(:python, :sql, :linux, :bootstrap).each do |key, tech|
+technologies.slice(:postgresql, :delphi, :mongo, :python, :linux, :bootstrap).each do |key, tech|
   create(Skill, technology: tech, level: 3)
 end
 
