@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.hosts << "portfolio-backend-production-0f3c.up.railway.app"
+  config.hosts << "portfolio-backend-production-ecad.up.railway.app"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
