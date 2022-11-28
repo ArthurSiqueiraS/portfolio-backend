@@ -1,3 +1,17 @@
+Education.delete_all
+Employer.delete_all
+Experience.delete_all
+ExtraInfo.delete_all
+Language.delete_all
+Location.delete_all
+Occupation.delete_all
+Portfolio.delete_all
+ProjectHighlight.delete_all
+ProjectStatus.delete_all
+Project.delete_all
+Skill.delete_all
+Technology.delete_all
+
 def create(model, en_hash, pt_hash={})
   I18n.locale = 'en'
   object = model.new(en_hash)
@@ -195,7 +209,7 @@ create(Experience,
   start_date: Date.new(2021, 9),
   summary: "Working in scrum pods assigned to external Globant consulting clients, as a full-stack engineer with
   focus on the back-end. Besides development, role involves actively participating in scrum processes, analyzing
-  business requirements and elaborating technical solutions for the proposed projects and maintaining close 
+  business requirements and elaborating technical solutions for the proposed projects and maintaining close
   communication with the client company's team. Technology stack includes Ruby on Rails, React and PostgreSQL.",
 },
 {
